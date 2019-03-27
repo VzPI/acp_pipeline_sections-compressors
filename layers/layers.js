@@ -32,16 +32,30 @@ jsonSource_ACPproposedcompressors_2.addFeatures(features_ACPproposedcompressors_
                 source:jsonSource_ACPproposedcompressors_2, 
                 style: style_ACPproposedcompressors_2,
                 title: '<img src="styles/legend/ACPproposedcompressors_2.png" /> ACP-proposed-compressors'
+            });var format_ACPproposedMRstations_3 = new ol.format.GeoJSON();
+var features_ACPproposedMRstations_3 = format_ACPproposedMRstations_3.readFeatures(json_ACPproposedMRstations_3, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_ACPproposedMRstations_3 = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+});
+jsonSource_ACPproposedMRstations_3.addFeatures(features_ACPproposedMRstations_3);var lyr_ACPproposedMRstations_3 = new ol.layer.Vector({
+                declutter: true,
+                source:jsonSource_ACPproposedMRstations_3, 
+                style: style_ACPproposedMRstations_3,
+                title: '<img src="styles/legend/ACPproposedMRstations_3.png" /> ACP-proposed-M-R-stations'
             });
 
-lyr_ESRISatelliteArcGISWorld_Imagery_0.setVisible(true);lyr_ACPproposedalignment_1.setVisible(true);lyr_ACPproposedcompressors_2.setVisible(true);
-var layersList = [lyr_ESRISatelliteArcGISWorld_Imagery_0,lyr_ACPproposedalignment_1,lyr_ACPproposedcompressors_2];
+lyr_ESRISatelliteArcGISWorld_Imagery_0.setVisible(true);lyr_ACPproposedalignment_1.setVisible(true);lyr_ACPproposedcompressors_2.setVisible(true);lyr_ACPproposedMRstations_3.setVisible(true);
+var layersList = [lyr_ESRISatelliteArcGISWorld_Imagery_0,lyr_ACPproposedalignment_1,lyr_ACPproposedcompressors_2,lyr_ACPproposedMRstations_3];
 lyr_ACPproposedalignment_1.set('fieldAliases', {'Element': 'Element', 'Type': 'Type', 'App_Miles': 'App_Miles', 'Spreads': 'Spreads', });
 lyr_ACPproposedcompressors_2.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'Element': 'Element', 'Type': 'Type', 'Horsepower': 'Horsepower', 'Link': 'Link', });
+lyr_ACPproposedMRstations_3.set('fieldAliases', {'name': 'name', 'owner': 'owner', 'volume': 'volume', 'use': 'use', });
 lyr_ACPproposedalignment_1.set('fieldImages', {'Element': 'TextEdit', 'Type': 'TextEdit', 'App_Miles': 'TextEdit', 'Spreads': 'TextEdit', });
 lyr_ACPproposedcompressors_2.set('fieldImages', {'OBJECTID': 'TextEdit', 'Element': 'TextEdit', 'Type': 'TextEdit', 'Horsepower': 'TextEdit', 'Link': 'TextEdit', });
+lyr_ACPproposedMRstations_3.set('fieldImages', {'name': 'TextEdit', 'owner': 'TextEdit', 'volume': 'TextEdit', 'use': 'TextEdit', });
 lyr_ACPproposedalignment_1.set('fieldLabels', {'Element': 'inline label', 'Type': 'inline label', 'App_Miles': 'inline label', 'Spreads': 'inline label', });
 lyr_ACPproposedcompressors_2.set('fieldLabels', {'OBJECTID': 'no label', 'Element': 'inline label', 'Type': 'inline label', 'Horsepower': 'inline label', 'Link': 'inline label', });
-lyr_ACPproposedcompressors_2.on('precompose', function(evt) {
+lyr_ACPproposedMRstations_3.set('fieldLabels', {'name': 'inline label', 'owner': 'inline label', 'volume': 'inline label', 'use': 'inline label', });
+lyr_ACPproposedMRstations_3.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
